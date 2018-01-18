@@ -1,26 +1,27 @@
 {
-  "name": "frontend-challenge",
+  "name": "pizza_api",
   "version": "1.0.0",
-  "description": "Frontend Challenge for Developer Candidates ===========================================",
+  "description": "Pizza API for Front End Coding Challenge",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/index.js"
+    "start": "nodemon server/index.js"
   },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "nodemon": "^1.14.11"
+  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AmbulnzLLC/frontend-challenge.git"
+    "url": "git+https://github.com/shwetachari/example_pizza_api.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AmbulnzLLC/frontend-challenge/issues"
+    "url": "https://github.com/shwetachari/example_pizza_api/issues"
   },
-  "homepage": "https://github.com/AmbulnzLLC/frontend-challenge#readme",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "node": "^9.4.0",
-    "nodemon": "^1.14.11"
-  }
+  "homepage": "https://github.com/shwetachari/example_pizza_api#readme"
 }
