@@ -1,0 +1,26 @@
+{
+  "name": "frontend-challenge",
+  "version": "1.0.0",
+  "description": "Frontend Challenge for Developer Candidates ===========================================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmbulnzLLC/frontend-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmbulnzLLC/frontend-challenge/issues"
+  },
+  "homepage": "https://github.com/AmbulnzLLC/frontend-challenge#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "node": "^9.4.0",
+    "nodemon": "^1.14.11"
+  }
+}
