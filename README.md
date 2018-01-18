@@ -1,5 +1,5 @@
-Frontend Challenge for Developer Candidates
-===========================================
+Frontend Challenge
+==================
 
 To better assess a candidates development skills, we would like to provide the following challenge. This is intendend to be developed in a pair programming session within an hour of time.
 
@@ -15,23 +15,19 @@ Installation
 
 Clone the project
 
-```bash
-git clone git@github.com:AmbulnzLLC/frontend-challenge.git && cd frontend-challenge/
-```
-
 Install the dependencies
 
-```bash
+```
 npm install
 ```
 
 Start the server
 
-```bash
-node server.js
+```
+npm start
 ```
 
-Visit [http://localhost:8080](http://localhost:8080)
+Visit [http://localhost:3000](http://localhost:3000)
 
 **Please set up your working environment before the interview (working server, node, npm dependencies), so we don't spend time installing anything.**
 
@@ -40,32 +36,139 @@ Project description
 
 We want to develop a small web app that allows users to order pizza.
 
-First of all we'll display the list of pizzas with ingredients and prices. Data will be loaded from `server/pizzas.json`.
+First of all we'll display the list of pizzas with ingredients and prices. Pizza data can be retrieved from the `*/pizzas` server endpoint.
 
 When the user chooses something from the list the order summary will update dynamically.
 
-There will be a button to confirm the order. An ajax call will be performed to `server/order.json` and the result will be displayed as a message like this: "Your order will be delivered in x minutes".
+There will be a button to confirm the order. An ajax call will be performed to the `*/order` endpoint and the result will be displayed as a message like this: "Your order will be delivered in x minutes".
 
 You can use any library/framework/plugin you want.
 
-Please use some template library (http://handlebarsjs.com/, http://mustache.github.io/, ...).
+The application must be single page and JS-based using AngularJS or ReactJS. That means that I load just one html file, if you want to add some navigation you have to implement it via JS.
 
-The application must be single page and JS-based using AngularJS (1.x is fine if not familiar with 2.x) or ReactJS. That means that I load just one html file, if you want to add some navigation you have to implement it via JS.
 
-If you can display discounts for pizzas it's a plus.
+API Endpoints
+-----------------
+get /pizzas
+Response Data:
+```
+[
+  {
+    name: "Margherita",
+    price: 5,
+    ingredients: [
+      "tomato",
+      "mozzarella"
+    ]
+  },
+  {
+    name: "Bufala",
+    price: 6,
+    ingredients: [
+      "tomato",
+      "mozarella di bufala"
+    ]
+  },
+  {
+    name: "Romana",
+    price: 5,
+    ingredients: [
+      "tomato",
+      "mozzarella",
+      "anchovies",
+      "oregano",
+      "oil"
+    ]
+  },
+  {
+    name: "Diavola",
+    price: 7.5,
+    ingredients: [
+      "tomato",
+      "mozzarella",
+      "spicy salami"
+    ]
+  },
+  {
+    name: "Pizza Bianca",
+    price: 5,
+    ingredients: [
+      "mozzarella",
+      "oregano"
+    ]
+  }
+]
+```
+
+post /order
+Request Body Format:
+(same format as individual pizza data)
+```
+{
+  name: [STRING],
+  price: [NUMBER],
+  ingredients: [ARRAY OF STRINGS]
+}
+```
+
+delete /order
+Request Body Format:
+(needs to at least have name property)
+```
+{
+  name: [STRING],
+  . . .
+}
+```
+
+get /order
+Example Response Data:
+```
+{
+  success: true,
+  deliveryTime: 14,
+  items: [
+    {
+      name: "Romana",
+      price: 5,
+      ingredients: [
+        "tomato",
+        "mozzarella",
+        "anchovies",
+        "oregano",
+        "oil"
+      ]
+    },
+    {
+      name: "Diavola",
+      price: 7.5,
+      ingredients: [
+        "tomato",
+        "mozzarella",
+        "spicy salami"
+      ]
+    }
+  ],
+}
+```
+
+get /*
+(any get route that wasn't defined above)
+Response:
+`There's nothing here!`
+
 
 Evaluation
 ----------
 
-Our goal is to find answers to those questions:
+This prompt tests for the following:
 
 * Do you understand the JavaScript language and more in general web technologies?
 * Can you judge which library/framework is the best fit for a job and use it correctly?
 * Can you design interfaces that are clear and easy to use?
 * Do you master your working environment?
 
-Due to the limited time consider the followings:
+Due to the limited time, consider the following:
 
 * It is NOT important to have a fully functional application at the end.
 * We'll develop just for the latest version of Google Chrome.
-

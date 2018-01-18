@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors')
 
 const port = 3000;
 let order = require('./order.js');
 let pizzas = require('./pizzas.js');
 
+app.use(cors({credentials: true, origin: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -29,6 +31,7 @@ app.delete('*/order', (req, res) => {
 });
 
 app.get('*/order', (req, res) => {
+  order.time = order.items.length * 7;
   res.status(200).send(order);
 });
 
